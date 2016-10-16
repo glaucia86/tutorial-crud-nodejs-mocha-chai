@@ -1,4 +1,4 @@
-# Tutorial: Testando Aplicações Node.Js com Mocha & Chai
+# Tutorial: Testando Aplicações RESTFul API em Node.Js com Mocha & Chai
 
 Desenvolvimento de uma aplicação em Node.Js para ensinar os conceitos principais para realizar testes com Mocha e Chai. O tutorial segue no seu site: [Code4Coders] (www.code4coders.wordpress.com)
 
