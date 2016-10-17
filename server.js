@@ -5,6 +5,9 @@
  * Data: 16/10/2016
  */
 
+"use strict";
+
+let strict = require('use-strict');
 let express = require('express');
 let app = express();
 let mongoose = require('mongoose');
