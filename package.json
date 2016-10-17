@@ -1,28 +1,28 @@
 {
-    "name": "livraria-app",
-    "version": "1.0.0",
-    "description": "Tutorial: Testando Aplicações RESTFul API em Node.Js com Mocha & Chai",
-    "main": "server.js",
-    "author": "Glaucia Lemos",
-    "license": "ISC",
-    "dependencies": {
-        "body-parser": "^1.15.1",
-        "config": "^1.20.1",
-        "express": "4.13.4",
-        "mongoose": "*",
-        "morgan": "^1.7.0"
-    },
-    "devDependencies": {
-        "chai": "^3.5.0",
-        "chai-http": "^2.0.1",
-        "mocha": "^2.4.5"
-    },
-    "scripts": {
-        "start": "SET NODE_ENV=dev && node server.js",
-        "test": "mocha --timeout 10000"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/glaucia86/tutorial-crud-nodejs-mocha-chai"
-    }
+  "name": "livraria-app",
+  "version": "1.0.0",
+  "description": "Tutorial: Testando Aplicações RESTFul API em Node.Js com Mocha & Chai",
+  "main": "server.js",
+  "author": "Glaucia Lemos",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "config": "^1.20.1",
+    "express": "4.13.4",
+    "mongoose": "*",
+    "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "start": "SET NODE_ENV=dev && node server.js",
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glaucia86/tutorial-crud-nodejs-mocha-chai"
+  }
 }
