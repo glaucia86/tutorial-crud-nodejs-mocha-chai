@@ -69,3 +69,6 @@ let Livro = require('../models/livro');
             });
         });
     }
+
+//Aqui iremos exportar todas as funções criadas acima:
+module.exports = { getLivros, postLivro, getLivros, deleteLivro, updateLivro };
