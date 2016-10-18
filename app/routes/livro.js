@@ -16,7 +16,7 @@ let Livro = require('../models/livro');
         query.exec((error, livros) => {
             if(error)
                 res.send(error);
-            //Caso não haja erros, então retornará para o cliente
+            //Caso não haja erros, então retornará para o usuário:
             res.json(livros);
         });       
     }
@@ -34,5 +34,16 @@ let Livro = require('../models/livro');
             } else {
                 res.json({ message: "Livro adicionado com Sucesso!", livro });
             }
+        });
+    }
+
+/** 3)  Método: Selecionar Por Id (acessar em: GET http://localhost:3000/livro/:id ) */ 
+    function getLivro(req, res) {
+        Livro.findById(req.params.id, (error, livro) => {
+            if(error)
+                res.send(error);
+
+                //Caso não haja erros, retornar para o usuário:
+                res.json(livro);
         });
     }
