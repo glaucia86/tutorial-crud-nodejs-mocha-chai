@@ -47,3 +47,10 @@ let Livro = require('../models/livro');
                 res.json(livro);
         });
     }
+
+/** 4) Método: Excluir (acessar em: http://localhost:3000/livro/:id ) */ 
+    function deleteLivro (req, res) {
+        Livro.remove({ _id: req.params.id }, (error, resultado) => {
+            res.json({ message: "Livro excluído com Sucesso!", resultado });
+        });
+    }
