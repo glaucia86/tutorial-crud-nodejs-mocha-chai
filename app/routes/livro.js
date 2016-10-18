@@ -49,8 +49,23 @@ let Livro = require('../models/livro');
     }
 
 /** 4) Método: Excluir (acessar em: http://localhost:3000/livro/:id ) */ 
-    function deleteLivro (req, res) {
+    function deleteLivro(req, res) {
         Livro.remove({ _id: req.params.id }, (error, resultado) => {
             res.json({ message: "Livro excluído com Sucesso!", resultado });
+        });
+    }
+/* 5) Método: Atualizar (acessar em: PUT http://localhost:3000/livro/:id ) */
+    function updateLivro(req, res) {
+        //Para que eu possa atualizar um livro, preciso primeiramente encontrar o id do livro que desejo atualizar:
+        Livro.findById({ _id: req.params.id }, (error, livro) => {
+            if(error)
+                res.send(error);
+            
+            //Caso não haja erros, retornar a atualização para o usuário:
+            Object.assign(livro, req.body).save((error, livro) => {
+                if(error)
+                    res.send(error);
+                res.json({ message: "Livro Atualizado com Sucesso", livro });
+            });
         });
     }
