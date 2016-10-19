@@ -15,8 +15,8 @@ let LivroSchema = new Schema(
         titulo: { type: String, required: true },
         autor:  { type: String, required: true },
         ano:    { type: Number, required: true },
-        paginas: { type: Number, required: true },
-        criadoEm: { type: Date, required: true }
+        paginas: { type: Number, required: true, min: 1 },
+        criadoEm: { type: Date, default: Date.now },
     },
     {
         versionKey: false
@@ -25,7 +25,7 @@ let LivroSchema = new Schema(
 
 //Aqui irá setar o parâmetro 'criadoEm' para a data atual:
 LivroSchema.pre('save', next => {
-    dataAtual = new Date();
+    var dataAtual = new Date();
     if(!this.criadoEm) {
         this.criadoEm = dataAtual;
     }

@@ -1,3 +1,3 @@
 {
-	"DBHost": "SEU_DB_URI_TESTE_AQUI"
+	"DBHost": "mongodb://root:123456@jello.modulusmongo.net:27017/ity3Ryje"
 }

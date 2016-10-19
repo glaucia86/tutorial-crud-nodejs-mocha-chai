@@ -40,18 +40,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json' }));
 
-app.get("/", (req, res) => res.json({ message: "Sejam Bem-Vindos a Nossa Livraria READ IT!" }));
+app.get("/", (req, res) => res.json({message: "Sejam Bem-Vindos a Nossa Livraria READ IT!"}));
 
 //Definição das rotas para: GET & POST:
 app.route("/livro")
-    .get(livro.getLivros)
-    .post(livro.postLivro);
+	.get(livro.selecionarTodosLivros)
+	.post(livro.adicionarLivro);
 
 //Definição das rotas para: GET, DELETE & PUT
 app.route("/livro/:id")
-    .get(livro.getLivro)
-    .delete(livro.deleteLivro)
-    .put(livro.updateLivro);
+	.get(livro.selecionarLivroPorId)
+	.delete(livro.excluirLivro)
+	.put(livro.atualizarLivro);
 
 app.listen(port);
 console.log("Aplicação executando na porta " + port);
