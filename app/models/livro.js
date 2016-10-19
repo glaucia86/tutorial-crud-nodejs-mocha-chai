@@ -6,11 +6,11 @@
  * Data: 18/10/2016
  */
 
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 //Aqui vem a definição da esquema do 'Livro':
-let LivroSchema = new Schema(
+var LivroSchema = new Schema(
     {
         titulo: { type: String, required: true },
         autor:  { type: String, required: true },
