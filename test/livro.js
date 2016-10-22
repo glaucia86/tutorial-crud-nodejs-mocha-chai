@@ -28,7 +28,6 @@ describe('Livros', function() {
             done();
         });
     });
-});
 
 /** 
  * Teste da rota: /GET
@@ -101,7 +100,7 @@ describe('/POST livro', function() {
  * Teste da rota: /GET/:id
  */
 describe('/GET/:id livro', function() {
-    it('Deve retornar um livro dado o id', function() {
+    it('Deve retornar um livro dado o id', function(done) {
         var livro = new Livro( {
             titulo: "Javascript. O Guia Definitivo",
             autor: "David Flanagan",
@@ -123,4 +122,45 @@ describe('/GET/:id livro', function() {
             });
         });
     });
+});
+
+/** 
+ * Teste da rota: /PUT/:id
+ */
+describe('/PUT/:id livro', function(){
+	  it('Deve atualizar um livro dado o id', function(done){
+	  	var livro = new Livro({titulo: "Use A Cabeça! C#", autor: "Andrew Stellman", ano: 2013, paginas: 738})
+	  	livro.save(function(error, livro){
+				chai.request(server)
+			    .put('/livro/' + livro.id)
+			    .send({titulo: "Use A Cabeça! C#", autor: "Andrew Stellman", ano: 2014, paginas: 738})
+			    .end(function(error, res){
+				  	res.should.have.status(200);
+				  	res.body.should.be.a('object');
+				  	res.body.should.have.property('message').eql('Livro Atualizado com Sucesso');
+				  	res.body.livro.should.have.property('ano').eql(2014);
+	            done();
+            });
+        });
+    });
+});
+
+/** 
+ * Teste da rota: /DELETE/:id
+ */
+describe('/DELETE/:id livro', function(){
+	  it('Deve excluir um livro dado o id', function(done){
+	  	var livro = new Livro({titulo: "Use A Cabeça! C#", autor: "Andrew Stellman", ano: 2013, paginas: 738})
+	  	livro.save(function(error, livro){
+				chai.request(server)
+			    .delete('/livro/' + livro.id)
+			    .end(function(error, res){
+				  	res.should.have.status(200);
+				  	res.body.should.be.a('object');
+				  	res.body.should.have.property('message').eql('Livro excluído com Sucesso!');
+			      done();
+			    });
+		  });
+	  });
+   });
 });
